@@ -1,0 +1,12 @@
+<h1>All Posts</h1>
+<% @posts.each do |f|%>
+<%=link_to f.title, post_path(f) %>
+<%= "     Category:" %>
+<%= f.category.title %>
+<hr>
+<% end %>
+
+
+
+
+<%= paginate @posts %>

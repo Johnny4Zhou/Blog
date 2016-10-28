@@ -1,0 +1,36 @@
+<h1><%= @post.title %></h1>
+<div>
+<% if can? :manage, @post %>
+  <%=link_to @post.user.full_name, edit_user_path(@post.user) %>
+<% else %>
+  <%= @post.user.full_name %>
+<% end %>
+</div>
+
+<div>
+Category: <%=@post.category.title %>
+</div>
+<p><%= @post.body %></p>
+
+<% if can? :manage, @post %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Delete', post_path(@post),method: :delete, data: {confirm: 'Are you sure'} %>
+<% end %>
+
+<h2>All Comments</h2>
+<%= form_for [@post, @comment] do |f| %>
+<div>
+<%= f.label :body %>
+<%= f.text_area :body %>
+</div>
+<%= f.submit %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+<%= comment.body %> <br>
+😎: <%= comment.user.full_name %>
+<% if can? :delete, comment %>
+<%= link_to 'Delete', post_comment_path(@post,comment), method: :delete, data: {confirm: 'are you sure'}%>
+<% end %>
+<hr>
+<% end %>
