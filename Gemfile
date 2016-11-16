@@ -30,6 +30,7 @@ gem 'faker'
 gem 'cowsay'
 gem 'kaminari'
 gem 'cancancan'
+gem "chosen-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

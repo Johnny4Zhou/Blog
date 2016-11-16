@@ -1,0 +1,8 @@
+<h1>Enter email</h1>
+<div>
+  <%= form_tag("/confirm", method: "get") do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= submit_tag "Submit" %>
+  <% end %>
+</div>

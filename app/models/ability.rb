@@ -9,6 +9,14 @@ class Ability
       post.user == user
     end
 
+    cannot :favor, Post do |q|
+      q.user == user
+    end
+
+    can :favor, Post do |q|
+      q.user != user
+    end
+
     can :delete, Comment do |c|
       c.user == user || c.post.user == user
     end

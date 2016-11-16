@@ -1,0 +1,15 @@
+<h1>Enter your New password</h1>
+ <p><%= @user.full_name %></p>
+ <div>
+   <%= form_tag("/change", method: "get") do %>
+
+   <%= label_tag  (:new_password )%>
+   <%= text_field_tag :new_password %><br>
+
+   <%= label_tag  (:new_password_confirmation )%>
+   <%= text_field_tag :new_password_confirmation %><br>
+
+   <%= hidden_field_tag(:subaction, @user.id) %>
+   <%= submit_tag "Submit" %>
+   <% end %>
+ </div>

@@ -1,0 +1,8 @@
+<h1>My Favourites</h1>
+<%= @user.full_name %><hr>
+<% if user_signed_in? %>
+<% @user.favored_posts.each do |post| %>
+<%=link_to post.title, post_path(post) %>
+<hr>
+<% end %>
+<% end %>

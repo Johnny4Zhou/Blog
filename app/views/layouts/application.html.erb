@@ -14,12 +14,15 @@
     <%= link_to 'All Posts ', posts_path %>|
     <%= link_to ' New Post ', new_post_path %>|
     <% if user_signed_in?%>
-    Hello <%= current_user.first_name %> <%= link_to "Sign Out", sessions_path, method: :delete %> 
+    Hello <%= current_user.full_name %>|
+    <%= link_to " My favourites ", user_path(current_user) %>|
+    <%= link_to " Sign Out ", sessions_path, method: :delete %>
     <% else %>
     <%= link_to ' Sign Up ', new_user_path %>|
     <%= link_to ' Sign In ', new_session_path %>
     <% end %>
     <hr>
+    <%= notice || alert%>
     <%= yield %>
   </body>
 </html>

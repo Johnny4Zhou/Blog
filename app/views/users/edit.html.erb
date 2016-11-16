@@ -1,17 +1,16 @@
-<h1>Edit User</h1>
+<h1>Change Password</h1>
 
-<%= form_for @user do |f| %>
 <div>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= form_tag("/users/#{@user.id}", method: "patch") do %>
+
+  <%= label_tag  (:old_password )%>
+  <%= text_field_tag :old_password %><br>
+
+  <%= label_tag  (:new_password )%>
+  <%= text_field_tag :new_password %><br>
+
+  <%= label_tag  (:new_password_confirmation )%>
+  <%= text_field_tag :new_password_confirmation %><br>
+  <%= submit_tag "Submit" %>
+  <% end %>
 </div>
-<div>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-</div>
-<div>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</div>
- <%= f.submit %>
-<% end %>

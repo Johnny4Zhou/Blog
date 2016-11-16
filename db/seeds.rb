@@ -19,10 +19,14 @@
 #                     post_id: rand(1..201)})
 # end
 # puts "700 comments generated"
-50.times do
-  User.create({ first_name: Faker::Name.first_name,
-                    last_name:  Faker::Name.last_name,
-                    email: Faker::Internet.free_email,
-                    password: "123"})
+# 50.times do
+#   User.create({ first_name: Faker::Name.first_name,
+#                     last_name:  Faker::Name.last_name,
+#                     email: Faker::Internet.free_email,
+#                     password: "123"})
+# end
+# puts "50 users generated"
+10.times do
+  Tag.create({ name: Faker::GameOfThrones.house})
 end
-puts "50 users generated"
+puts "10 tags generated"
